@@ -6,7 +6,11 @@ They are like pre-made blueprints that you can customize to solve a recurring de
 
 The pattern is a general concept for solving a particular problem. You can follow the pattern details and implement a solution that suits the realities of your own program.
 
-## Singleton
+## Creational Design Patterns
+Creational design patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code.
+- Singleton
+
+### Singleton
 
 **Singleton** is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
 
