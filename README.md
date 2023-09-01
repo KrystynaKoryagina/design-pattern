@@ -44,6 +44,7 @@ Unlike global variables, the Singleton pattern ensure that there’s just one in
 ## Structural Design Patterns
 Structural design patterns explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.
 - Adapter
+- Decorator
 
 ### Adapter
 
@@ -65,3 +66,28 @@ However, you’ll need to duplicate the code across all of these new classes, wh
 
 "-" The overall complexity of the code increases because you need to introduce a set of new interfaces and classes. 
 Sometimes it’s simpler just to change the service class so that it matches the rest of your code.
+
+### Decorator
+**Decorator** is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
+
+“Wrapper” is the alternative nickname for the Decorator pattern that clearly expresses the main idea of the pattern. A wrapper is an object that can be linked with some target object. The wrapper contains the same set of methods as the target and delegates to it all requests it receives. However, the wrapper may alter the result by doing something either before or after it passes the request to the target.
+
+- Use the Decorator pattern when you need to be able to assign extra behaviors to objects at runtime without breaking the code that uses these objects.
+
+The Decorator lets you structure your business logic into layers, create a decorator for each layer and compose objects with various combinations of this logic at runtime. The client code can treat all these objects in the same way, since they all follow a common interface.
+
+- Use the pattern when it’s awkward or not possible to extend an object’s behavior using inheritance.
+
+#### Pros and Cons
+"+" You can extend an object’s behavior without making a new subclass.
+
+"+" You can add or remove responsibilities from an object at runtime.
+
+"+" You can combine several behaviors by wrapping an object into multiple decorators.
+
+"+" Single Responsibility Principle. You can divide a monolithic class that implements many possible variants of behavior into several smaller classes.
+
+"-" It’s hard to remove a specific wrapper from the wrappers stack.
+
+"-" It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack.
+The initial configuration code of layers might look pretty ugly.
