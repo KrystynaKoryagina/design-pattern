@@ -45,6 +45,7 @@ Unlike global variables, the Singleton pattern ensure that there’s just one in
 Structural design patterns explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.
 - Adapter
 - Decorator
+- Facade
 
 ### Adapter
 
@@ -91,3 +92,17 @@ The Decorator lets you structure your business logic into layers, create a decor
 
 "-" It’s hard to implement a decorator in such a way that its behavior doesn’t depend on the order in the decorators stack.
 The initial configuration code of layers might look pretty ugly.
+
+### Facade
+**Facade** is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
+
+A facade is a class that provides a simple interface to a complex subsystem which contains lots of moving parts. A facade might provide limited functionality in comparison to working with the subsystem directly. However, it includes only those features that clients really care about.
+
+-  Use the Facade pattern when you need to have a limited but straightforward interface to a complex subsystem.
+
+Often, subsystems get more complex over time. Even applying design patterns typically leads to creating more classes. A subsystem may become more flexible and easier to reuse in various contexts, but the amount of configuration and boilerplate code it demands from a client grows ever larger. The Facade attempts to fix this problem by providing a shortcut to the most-used features of the subsystem which fit most client requirements.
+
+#### Pros and Cons
+"+" You can isolate your code from the complexity of a subsystem.
+
+"-" A facade can become a god object coupled to all classes of an app.
