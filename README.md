@@ -106,3 +106,35 @@ Often, subsystems get more complex over time. Even applying design patterns typi
 "+" You can isolate your code from the complexity of a subsystem.
 
 "-" A facade can become a god object coupled to all classes of an app.
+
+## Behavioral Design Patterns
+Behavioral design patterns are concerned with algorithms and the assignment of responsibilities between objects.
+
+- Template Method
+
+### Template Method
+**Template Method** is a behavioral design pattern that defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
+
+The Template Method pattern suggests that you break down an algorithm into a series of steps, turn these steps into methods, and put a series of calls to these methods inside a single template method. 
+
+The steps may either be abstract, or have some default implementation. To use the algorithm, the client is supposed to provide its own subclass, implement all abstract steps, and override some of the optional ones if needed (but not the template method itself).
+
+- Use the Template Method pattern when you want to let clients extend only particular steps of an algorithm, but not the whole algorithm or its structure.
+
+The Template Method lets you turn a monolithic algorithm into a series of individual steps which can be easily extended by subclasses while keeping intact the structure defined in a superclass.
+
+- Use the pattern when you have several classes that contain almost identical algorithms with some minor differences. As a result, you might need to modify all classes when the algorithm changes.
+
+When you turn such an algorithm into a template method, you can also pull up the steps with similar implementations into a superclass, eliminating code duplication. Code that varies between subclasses can remain in subclasses.
+
+#### Pros and Cons
+"+" You can let clients override only certain parts of a large algorithm, making them less affected by changes that happen to other parts of the algorithm.
+
+"+" You can pull the duplicate code into a superclass.
+
+"-" Some clients may be limited by the provided skeleton of an algorithm.
+
+"-" You might violate the Liskov Substitution Principle by suppressing a default step implementation via a subclass.
+
+ "-" Template methods tend to be harder to maintain the more steps they have.
+
