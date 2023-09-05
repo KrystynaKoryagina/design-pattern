@@ -46,6 +46,7 @@ Structural design patterns explain how to assemble objects and classes into larg
 - Adapter
 - Decorator
 - Facade
+- Flyweight
 
 ### Adapter
 
@@ -106,6 +107,23 @@ Often, subsystems get more complex over time. Even applying design patterns typi
 "+" You can isolate your code from the complexity of a subsystem.
 
 "-" A facade can become a god object coupled to all classes of an app.
+
+### Flyweight
+**Flyweight** is a structural design pattern that lets you fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
+
+The Flyweight pattern suggests that you stop storing the extrinsic state inside the object. Instead, you should pass this state to specific methods which rely on it. Only the intrinsic state stays within the object, letting you reuse it in different contexts. As a result, you’d need fewer of these objects since they only differ in the intrinsic state, which has much fewer variations than the extrinsic.
+
+Since the same flyweight object can be used in different contexts, you have to make sure that its state can’t be modified. A flyweight should initialize its state just once, via constructor parameters. It shouldn’t expose any setters or public fields to other objects.
+
+- Use the Flyweight pattern only when your program must support a huge number of objects which barely fit into available RAM.
+
+#### Pros and Cons
+"+" You can save lots of RAM, assuming your program has tons of similar objects.
+
+"-" You might be trading RAM over CPU cycles when some of the context data needs to be recalculated each time somebody calls a flyweight method.
+
+"-" The code becomes much more complicated. New team members will always be wondering why the state of an entity was separated in such a way.
+
 
 ## Behavioral Design Patterns
 Behavioral design patterns are concerned with algorithms and the assignment of responsibilities between objects.
