@@ -9,6 +9,7 @@ The pattern is a general concept for solving a particular problem. You can follo
 ## Creational Design Patterns
 Creational design patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code.
 - Singleton
+- Factory Method
 
 ### Singleton
 
@@ -41,6 +42,24 @@ Unlike global variables, the Singleton pattern ensure that there’s just one in
 
 "-" The Singleton pattern can mask bad design, for instance, when the components of the program know too much about each other.
 
+### Factory Method
+**Factory Method** is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+
+- Use the Factory Method when you don’t know beforehand the exact types and dependencies of the objects your code should work with.
+
+The Factory Method separates product construction code from the code that actually uses the product. Therefore it’s easier to extend the product construction code independently from the rest of the code.
+
+For example, to add a new product type to the app, you’ll only need to create a new creator subclass and override the factory method in it.
+
+#### Pros and Cons
+"+" You avoid tight coupling between the creator and the concrete products.
+
+"+" Single Responsibility Principle. You can move the product creation code into one place in the program, making the code easier to support.
+
+"+" Open/Closed Principle. You can introduce new types of products into the program without breaking existing client code.
+
+"-" The code may become more complicated since you need to introduce a lot of new subclasses to implement the pattern. The best case scenario is when you’re introducing the pattern into an existing hierarchy of creator classes.
+  
 ## Structural Design Patterns
 Structural design patterns explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.
 - Adapter
