@@ -163,6 +163,7 @@ Behavioral design patterns are concerned with algorithms and the assignment of r
 
 - Template Method
 - Strategy
+- Observer
 
 ### Template Method
 
@@ -227,3 +228,29 @@ This way the context becomes independent of concrete strategies, so you can add 
 "-" If you only have a couple of algorithms and they rarely change, there’s no real reason to overcomplicate the program with new classes and interfaces that come along with the pattern.
 
 "-" Clients must be aware of the differences between strategies to be able to select a proper one.
+
+### Observer
+
+**Observer** is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
+
+The object that has some interesting state is often called *subject*, but since it’s also going to notify other objects about the changes to its state, we’ll call it *publisher*. All other objects that want to track changes to the publisher’s state are called *subscribers.*
+
+The Observer pattern suggests that you add a subscription mechanism to the publisher class so individual objects can subscribe to or unsubscribe from a stream of events coming from that publisher. 
+
+This mechanism consists of: 
+
+1) an array field for storing a list of references to subscriber objects 
+
+2) several public methods which allow adding subscribers to and removing them from that list
+
+- Use the Observer pattern when changes to the state of one object may require changing other objects, and the actual set of objects is unknown beforehand or changes dynamically.
+
+- Use the pattern when some objects in your app must observe others, but only for a limited time or in specific cases.
+
+#### Pros and Cons
+
+"+" Open/Closed Principle. You can introduce new subscriber classes without having to change the publisher’s code (and vice versa if there’s a publisher interface).
+
+"+" You can establish relations between objects at runtime.
+
+"-" Subscribers are notified in random order.
